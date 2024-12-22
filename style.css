@@ -17,7 +17,30 @@ body {
 h1 {
   color: #fff;
   font-family: Segoe Print;
-  font-size: calc(30px + (48 - 30) * ((100vw - 300px) / (1600 - 300)));
+
+  /* функция clamp() введена в CSS в 2020 */
+  /* font-size: clamp(20px, calc(30px + (48 - 30) * ((100vw - 300px) / (1600 - 300))), 60px); */
+
+  /* Альтернатива: */
+
+  /* Базовый размер шрифта (работает как fallback для старых браузеров) */
+  font-size: 30px;
+
+  /* Для экранов с шириной от 300px до 1600px используем эту формулу: */
+  @media (min-width: 300px) and (max-width: 1600px) {
+    font-size: calc(30px + (48 - 30) * ((100vw - 300px) / (1600 - 300)));
+  }
+
+  /* Альтернативно для экранов шириной меньше 300px */
+  @media (max-width: 300px) {
+    font-size: 20px;
+  }
+
+  /* Альтернативно для экранов шириной больше 1600px */
+  @media (min-width: 1600px) {
+    font-size: 48px;
+  }
+
   -webkit-animation: luce-1 1s infinite;
   animation: luce-1 1s infinite;
 }
@@ -39,6 +62,7 @@ h1 span:nth-child(4n + 1) {
 
 /* Ключевые кадры */
 @-webkit-keyframes luce-1 {
+
   0%,
   100% {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
@@ -51,6 +75,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @keyframes luce-1 {
+
   0%,
   100% {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
@@ -63,6 +88,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @-webkit-keyframes luce-2 {
+
   0%,
   100% {
     text-shadow: none;
@@ -75,6 +101,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @keyframes luce-2 {
+
   0%,
   100% {
     text-shadow: none;
@@ -87,6 +114,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @-webkit-keyframes luce-3 {
+
   0%,
   100% {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #11b2ed,
@@ -99,6 +127,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @keyframes luce-3 {
+
   0%,
   100% {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #11b2ed,
@@ -111,6 +140,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @-webkit-keyframes luce-4 {
+
   0%,
   100% {
     text-shadow: none;
@@ -123,6 +153,7 @@ h1 span:nth-child(4n + 1) {
 }
 
 @keyframes luce-4 {
+
   0%,
   100% {
     text-shadow: none;
@@ -150,6 +181,7 @@ h1 span:nth-child(4n + 1) {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(52px);
   }
@@ -159,6 +191,7 @@ h1 span:nth-child(4n + 1) {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(52px);
   }
