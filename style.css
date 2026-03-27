@@ -164,26 +164,25 @@ h1 span:nth-child(4n + 1) {
   }
 }
 
-.btn-github {
+.btn-home {
   display: block;
   position: absolute;
   top: -32px;
   right: 20px;
-  background: url(github-icon.png) no-repeat;
   width: 32px;
   height: 32px;
-  -webkit-animation: slide-bottom 1s ease-in 0.5s both;
+  color: #d6d6d6;
+  transition: color 0.3s ease;
   animation: slide-bottom 1s ease-in 0.5s both;
 }
 
-@-webkit-keyframes slide-bottom {
-  0% {
-    transform: translateY(0);
-  }
+.btn-home:hover {
+  color: #fff;
+}
 
-  100% {
-    transform: translateY(52px);
-  }
+.icon {
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes slide-bottom {
